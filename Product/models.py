@@ -47,7 +47,7 @@ class Product(models.Model):
     cost_price = models.FloatField(null=False)
     selling_price = models.FloatField(null=False)
     profit = models.FloatField(default=None, null=True, blank=True)
-    expiry_date = models.DateField(default=datetime.now() + timedelta(days=10000))
+    expiry_date = models.DateField(default=(datetime.now() + timedelta(days=10000)).date())
     quantity = models.IntegerField(null=False, default=1)
     quantity_type = models.CharField(max_length=20, choices=QUANTITY_TYPE_CHOICE, default=COUNT)
     created_date = models.DateTimeField(default=timezone.now)
